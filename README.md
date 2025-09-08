@@ -9,12 +9,12 @@ Welcome to the integration guide. This document will help you authenticate, acce
 Get your api key and secret from kalqix app [user > settings > api keys].
 
 ```
-https://dev.kalqix.com
+https://testnet.kalqix.com
 ```
 
 ### Primary API Endpoint
 ```
-https://devapi.kalqix.com/v1/
+https://testnet-api.kalqix.com/v1/
 ```
 
 ### Required Headers
@@ -123,7 +123,7 @@ const timestamp = Date.now();
 const hmacSignature = signRequest(method, path, requestBody, timestamp, apiSecret);
 
 // 4. Send request with both signatures
-fetch('https://devapi.kalqix.com/v1/orders', {
+fetch('https://testnet-api.kalqix.com/v1/orders', {
     method: 'POST',
     headers: {
         'x-api-key': apiKey,

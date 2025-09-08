@@ -9,12 +9,12 @@ This document provides comprehensive guidance for managing orders through the Ka
 Get your api key and secret from kalqix app [user > settings > api keys].
 
 ```
-https://dev.kalqix.com
+https://testnet.kalqix.com
 ```
 
 ### Primary API Endpoint
 ```
-https://devapi.kalqix.com/v1/
+https://testnet-api.kalqix.com
 ```
 
 ## Table of Contents
@@ -128,7 +128,7 @@ async function placeOrder(orderData) {
     const hmacSignature = signRequest(method, path, requestBody, timestamp, API_SECRET);
     
     // 4. Send request
-    const response = await fetch('https://devapi.kalqix.com/v1/orders', {
+    const response = await fetch('https://testnet-api.kalqix.com/v1/orders', {
         method: 'POST',
         headers: {
             'x-api-key': API_KEY,
@@ -213,7 +213,7 @@ const body = {};
 const timestamp = Date.now();
 const signature = signRequest(method, path, body, timestamp, apiSecret);
 
-const response = await fetch(`https://devapi.kalqix.com/v1/orders/ord_1234567890`, {
+const response = await fetch(`https://testnet-api.kalqix.com/v1/orders/ord_1234567890`, {
     method: 'GET',
     headers: {
         'x-api-key': apiKey,
@@ -281,7 +281,7 @@ const body = {};
 const timestamp = Date.now();
 const signature = signRequest(method, path, body, timestamp, apiSecret);
 
-const response = await fetch('https://devapi.kalqix.com/v1/orders?page=0&ticker=BTC_USDT&open=true', {
+const response = await fetch('https://testnet-api.kalqix.com/v1/orders?page=0&ticker=BTC_USDT&open=true', {
     method: 'GET',
     headers: {
         'x-api-key': apiKey,
@@ -336,7 +336,7 @@ const body = {};
 const timestamp = Date.now();
 const signature = signRequest(method, path, body, timestamp, apiSecret);
 
-const response = await fetch('https://devapi.kalqix.com/v1/orders/ord_1234567890', {
+const response = await fetch('https://testnet-api.kalqix.com/v1/orders/ord_1234567890', {
     method: 'DELETE',
     headers: {
         'x-api-key': apiKey,
