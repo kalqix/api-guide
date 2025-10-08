@@ -33,7 +33,11 @@ We use HMAC so the server can verify that a request was created by someone who h
 const crypto = require('crypto');
 
 function signRequest(method, path, body, timestamp, apiSecret) {
-    const canonical = `${method}|${path}|${JSON.stringify(body)}|${timestamp}`;
+    let payload = '';
+    if (body && Object.keys(body).length > 0) {
+        payload = JSON.stringify(body);
+    }
+    const canonical = `${method}|${path}|${payload}|${timestamp}`;
     return crypto.createHmac('sha256', apiSecret).update(canonical).digest('hex');
 }
 
